@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
 const errorHandler = require('./src/utils/errorHandlers');
-const classRoutes = require('./src/routes/classRoutes');
+const todoRoutes = require('./src/routes/todoRoutes');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5500;
@@ -19,11 +19,11 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', async (req, res) => {
-    await res.send('Hello to the Class Manager API');
+    await res.send('Hello to the Task Manager API');
 });
 
 // routes
-app.use('/todo', classRoutes);
+app.use('/todo', todoRoutes);
 
 // error handler
 app.use(errorHandler);

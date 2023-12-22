@@ -4,7 +4,7 @@ const asyncHandler = require('../utils/asyncHandler');
 // get all todos
 const getAllTodos = async (req, res, next) => {
     try {
-        const todos = await Todo.find();
+        const todos = await Todo.find({ email: req.user.email });
         res.status(200).json(todos);
     } catch (err) {
         next(err);

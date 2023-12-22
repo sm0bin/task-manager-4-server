@@ -32,9 +32,11 @@ const getTodo = async (req, res, next) => {
 // create a todo
 const createTodo = async (req, res, next) => {
     try {
+        console.log(req.body)
         const todo = await Todo.create(req.body);
         res.status(201).json(todo);
     } catch (err) {
+        console.error(err.message)
         next(err);
     }
 };

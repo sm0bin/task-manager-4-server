@@ -18,7 +18,8 @@ const todoSchema = new mongoose.Schema({
         maxlength: [512, 'Details cannot be more than 512 characters']
     },
     deadline: {
-        type: Date,
+        // type: Date,
+        type: String,
         required: [true, 'Please enter a deadline']
     },
     priority: {

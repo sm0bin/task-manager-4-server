@@ -1,10 +1,18 @@
 const Todo = require('../models/todo');
-const asyncHandler = require('../utils/asyncHandler');
+// const asyncHandler = require('../utils/asyncHandler');
 
 // get all todos
+// const getAllTodos = async (req, res, next) => {
+//     try {
+//         const todos = await Todo.find();
+//         res.status(200).json(todos);
+//     } catch (err) {
+//         next(err);
+//     }
+// };
 const getAllTodos = async (req, res, next) => {
     try {
-        const todos = await Todo.find({ email: req.user.email });
+        const todos = await Todo.find({ email: req.params.email });
         res.status(200).json(todos);
     } catch (err) {
         next(err);

@@ -4,7 +4,9 @@ const app = express();
 const mongoose = require('mongoose');
 const errorHandler = require('./src/utils/errorHandlers');
 const todoRoutes = require('./src/routes/todoRoutes');
+const jwtRoutes = require('./src/routes/jwtRoutes');
 require('dotenv').config();
+
 
 const PORT = process.env.PORT || 5500;
 
@@ -16,17 +18,28 @@ mongoose.connect(process.env.DB_URI)
 
 // middleware
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://pro-taskify.web.app",
+        "https://pro-taskify.firebaseapp.com"
+    ],
+    credentials: true
+}));
 
 app.get('/', async (req, res) => {
     await res.send('Hello to the Task Manager API');
 });
 
+
 // routes
-app.use('/todo', todoRoutes);
+app.use('/todos', todoRoutes);
+app.use('/jwt', jwtRoutes);
 
 // error handler
 app.use(errorHandler);
+
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);

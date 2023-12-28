@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const todoSchema = new mongoose.Schema({
+const taskSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'Please enter an email'],
@@ -34,8 +34,8 @@ const todoSchema = new mongoose.Schema({
     }
 });
 
-const Todo = mongoose.model('Todo', todoSchema);
-module.exports = Todo;
+const Task = mongoose.model('Task', taskSchema);
+module.exports = Task;
 
 
 // email

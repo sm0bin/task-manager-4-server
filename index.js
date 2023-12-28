@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
 const errorHandler = require('./src/utils/errorHandlers');
-const todoRoutes = require('./src/routes/todoRoutes');
+const taskRoutes = require('./src/routes/taskRoutes');
 const jwtRoutes = require('./src/routes/jwtRoutes');
 require('dotenv').config();
 
@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
 
 
 // routes
-app.use('/todos', todoRoutes);
+app.use('/tasks', taskRoutes);
 app.use('/jwt', jwtRoutes);
 
 // error handler

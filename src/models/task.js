@@ -18,14 +18,8 @@ const taskSchema = new mongoose.Schema({
         maxlength: [512, 'Details cannot be more than 512 characters']
     },
     deadline: {
-        // type: Date,
-        type: String,
+        type: Date,
         required: [true, 'Please enter a deadline']
-    },
-    priority: {
-        type: String,
-        required: [true, 'Please enter a priority'],
-        enum: ['Low', 'Moderate', 'High']
     },
     state: {
         type: String,
@@ -42,5 +36,4 @@ module.exports = Task;
 // title
 // details
 // deadline
-// priority
 // state

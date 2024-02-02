@@ -32,7 +32,7 @@ const getTask = async (req, res, next) => {
 // create a task
 const createTask = async (req, res, next) => {
     try {
-        console.log(req.body)
+        // console.log(req.body)
         const task = await Task.create(req.body);
         res.status(201).json(task);
     } catch (err) {
